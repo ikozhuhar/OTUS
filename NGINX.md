@@ -1,1 +1,56 @@
+## Обратный прокси
 
+_Пример конфигурации для проксирования запросов на бэкенд-сервер:_
+
+```ruby
+server {
+    listen 80;
+    server_name your-domain.com;  # или IP-адрес сервера
+	
+    #listen 443 ssl;
+    #server_name your-domain.com;
+
+    #ssl_certificate /path/to/cert.pem;
+    #ssl_certificate_key /path/to/key.pem
+
+    location / {
+        proxy_pass http://localhost:3000;  # адрес и порт вашего бэкенд-сервера
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+```
+
+_Если вам нужно проксировать несколько сервисов, можно использовать разные location или поддомены._
+
+```ruby
+server {
+    listen 80;
+    server_name api.your-domain.com;
+
+    location / {
+        proxy_pass http://localhost:8080;
+        # ... proxy_set_header
+    }
+}
+
+server {
+    listen 80;
+    server_name app.your-domain.com;
+
+    location / {
+        proxy_pass http://localhost:3000;
+        # ... proxy_set_header
+    }
+}
+```
+
+Рабочий вариант
+
+Для теста на своих двух тачках поставил Nginx и сделал следующее. На сервере testkedo_v1.mosinzhproekt.ru (192.168.11.129) настроил Nginx следующим образом.
+
+![image](https://github.com/user-attachments/assets/412b2073-4fef-4c69-a039-7dc39a95768c)
+
+При заходе на сервер testkedo_v1.mosinzhproekt.ru запросы уходят на сервер http://192.168.11.110 и весь контент тянется оттуда. Домен testkedo_v1.mosinzhproekt.ru работает по https, а http://192.168.11.110 по https не может. В браузерной строке отображается домен testkedo_v1.mosinzhproekt.ru. 
