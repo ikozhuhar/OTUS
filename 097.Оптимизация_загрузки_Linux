@@ -1,0 +1,21 @@
+### Оптимизация загрузки Linux
+
+```ruby
+# Посмотреть общее время загрузки системы
+systemd-analyze
+
+# Показать список сервисов и их время загрузки
+systemd-analyze blame
+
+# Проверить, какие службы запускаются при старте
+systemctl list-unit-files --state=enabled
+
+# Отключить ненужный сервис
+sudo systemctl disable имя_сервиса
+
+# Установить задержку старта для тяжёлого сервиса
+sudo systemctl edit ssh.service
+# В открывшемся файле добавить:
+# [Service]
+# ExecStartPre=/bin/sleep 30
+```
