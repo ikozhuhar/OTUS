@@ -1,3 +1,11 @@
+/boot  
+/(root)  
+/home  
+/var  
+/srv  
+/tmp  
+/swap  
+
 ![image](https://github.com/user-attachments/assets/334971fa-5513-4b20-b9d2-fbe169098658)
 
 
