@@ -113,7 +113,7 @@ Project.all.each do |project|
 end
 
 
-7. Как посмотреть ветки только в CPBUP-ELO
+7. Посмотреть ветки только в CPBUP-ELO
 
 # Получить просто массив имен веток
 project = Project.find_by(name: "CPBUP-ELO")
