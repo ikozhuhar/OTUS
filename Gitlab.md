@@ -133,11 +133,21 @@ git clone git@gitlab.mosinzhproekt.ru:root/vendorportal.git
 
 ```ruby
 sudo apt install git -y
+git config --global user.name "ikozhuhar"
+git config --global user.email "iuh77@mail.ru"
+git config --global credential.helper cache
+git config --global http.sslVerify false
+git config --list
+which git
 git --version
 
 # 1. Клонирование репозитория (если его еще нет)
 git clone https://gitlab.mosinzhproekt.ru/root/vendorportal.git
 cd vendorportal
+git branch          # покажет ветки
+git status          # покажет статус
+git log --oneline   # покажет историю коммитов
+
 
 # 2. Проверка подключения
 git remote -v
