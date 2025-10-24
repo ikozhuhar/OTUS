@@ -139,6 +139,7 @@ project.repository.branches.each { |b| puts b.name }
 
 
 <br>
+<br>
 
 :white_check_mark: _Задача: <a name='1'>Последовательность для pull на стороне сервера 192.168.160.57</a>_ 
 
