@@ -143,9 +143,9 @@ project.repository.branches.each { |b| puts b.name }
 <br>
 <br>
 
-:white_check_mark: _Задача: <a name='1'>Последовательность для pull на стороне сервера 192.168.160.57</a>_ 
+:white_check_mark: _Задача: <a name='1'>Последовательность для `pull` на стороне сервера 192.168.160.57</a>_ 
 
-```ruby
+```bash
 sudo apt install git -y
 git config --global user.name "ikozhuhar"
 git config --global user.email "iuh77@mail.ru"
