@@ -1,6 +1,4 @@
-## Как выполнить push в ветку main (192.168.6.40) из удаленного Git 
-
-:white_check_mark: _Задача: <a name='1'>Как выполнить push в ветку main (192.168.6.40) из удаленного Git</a>._  
+:white_check_mark: _Задача: <a name='1'>Как выполнить push в ветку main (192.168.6.40) из удаленного Git</a>_  
 
 ```ruby
 # создать локальный репозиторий
@@ -69,7 +67,7 @@ git clone git@gitlab.mosinzhproekt.ru:root/vendorportal.git
 
 <br>
 
-## На стороне внешнего gitlab (192.168.6.61)
+:white_check_mark: _Задача: <a name='1'>На стороне внешнего gitlab (192.168.6.61)</a>_ 
 
 ```ruby
 1. # Вход в контейнре gitlab
@@ -143,7 +141,8 @@ project.repository.branches.each { |b| puts b.name }
 
 <br>
 
-## Последовательность для pull на стороне сервера 192.168.160.57
+
+:white_check_mark: _Задача: <a name='1'>Последовательность для pull на стороне сервера 192.168.160.57</a>_ 
 
 ```ruby
 sudo apt install git -y
