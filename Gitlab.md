@@ -58,6 +58,8 @@ project.repository.branches.each { |b| puts b.name }
 ```
 
 
+<br>
+
 ## Как выполнить push в ветку main (192.168.6.40) из удаленного Git 
 
 ```ruby
@@ -124,7 +126,10 @@ Settings → SSH Keys
 git clone git@gitlab.mosinzhproekt.ru:root/vendorportal.git
 ```
 
-### Последовательность на стороне сервера 192.168.160.57
+
+<br>
+
+## Последовательность на стороне сервера 192.168.160.57
 
 ```ruby
 # 1. Клонирование репозитория (если его еще нет)
