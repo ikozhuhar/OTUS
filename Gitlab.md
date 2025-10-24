@@ -128,6 +128,16 @@ project = Project.find_by(name: "CPBUP-ELO")
 project.repository.branches.each { |b| puts b.name }
 ```
 
+<img width="1402" height="423" alt="image" src="https://github.com/user-attachments/assets/2ab66fe8-14bd-46a5-99ea-f88a386ddad8" />
+
+<img width="1537" height="163" alt="image" src="https://github.com/user-attachments/assets/5833a332-3fa5-40b9-9f51-6eaecbb0867d" />
+
+<img width="1528" height="120" alt="image" src="https://github.com/user-attachments/assets/70df799b-f532-4639-b9df-5df7d1a59146" />
+
+<img width="1482" height="218" alt="image" src="https://github.com/user-attachments/assets/1ff10549-1e4c-473e-a72c-f55c0365720c" />
+
+
+
 
 <br>
 
@@ -178,3 +188,6 @@ git log --oneline -5
 # Посмотреть статус
 git status
 ```
+
+<img width="1494" height="795" alt="image" src="https://github.com/user-attachments/assets/c22ff3b7-9e19-4031-bdd3-8bb1b641e66f" />
+
