@@ -55,9 +55,12 @@ end
 
 project = Project.find_by(name: "CPBUP-ELO")
 project.repository.branches.each { |b| puts b.name }
+```
 
-# 8. Как выполнить push в ветку main из удаленного сервера гита 
 
+## Как выполнить push в ветку main (192.168.6.40) из удаленного Git 
+
+```ruby
 # создать локальный репозиторий
 1. git clone https://gitlab.mosinzhproekt.ru/root/vendorportal.git
 2. cd vendorportal
