@@ -120,3 +120,38 @@ Settings → SSH Keys
 
 git clone git@gitlab.mosinzhproekt.ru:root/vendorportal.git
 ```
+
+### Последовательность на стороне сервера 192.168.160.57
+
+```ruby
+# 1. Клонирование репозитория (если его еще нет)
+git clone https://gitlab.mosinzhproekt.ru/root/vendorportal.git
+cd vendorportal
+
+# 2. Проверка подключения
+git remote -v
+
+# Должно показать:
+origin  https://gitlab.mosinzhproekt.ru/root/vendorportal.git (fetch)
+origin  https://gitlab.mosinzhproekt.ru/root/vendorportal.git (push)
+
+# 3. Выполнение pull
+git pull origin main
+
+
+Важные моменты:
+
+Клонирование нужно только один раз для первоначальной настройки
+Последующие обновления делаются через git pull
+Локальные изменения могут конфликтовать с удаленными - нужно решать конфликты
+
+Проверка что всё работает:
+# После клонирования/pull посмотреть файлы
+ls -la
+
+# Посмотреть историю коммитов
+git log --oneline -5
+
+# Посмотреть статус
+git status
+```
