@@ -189,5 +189,12 @@ git log --oneline -5
 git status
 ```
 
-<img width="1494" height="795" alt="image" src="https://github.com/user-attachments/assets/c22ff3b7-9e19-4031-bdd3-8bb1b641e66f" />
+<img width="1500" height="361" alt="image" src="https://github.com/user-attachments/assets/4da597f8-df51-49e4-b94e-d1eed156abd5" />
+
+<img width="1493" height="241" alt="image" src="https://github.com/user-attachments/assets/5d58909f-aa71-4c18-8965-641b146a5b34" />
+
+<img width="1493" height="119" alt="image" src="https://github.com/user-attachments/assets/68ee6c55-26ba-474e-bfb9-890327c9a1a1" />
+
+<img width="1498" height="170" alt="image" src="https://github.com/user-attachments/assets/d15b6ccb-7467-438f-8e99-1f88aa2d0e94" />
+
 
