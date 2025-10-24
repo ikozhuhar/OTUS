@@ -32,13 +32,13 @@ _Настройка доступа для `push`_
 
 Способ 1: Использование Personal Access Token (рекомендуется)
 
-Создайте Personal Access Token в GitLab:
-Зайдите в GitLab → Settings → Access Tokens
-Название: "Server Access"
-Срок действия: по вашему выбору
-Scope: отметьте api и write_repository
+Personal Access Token в GitLab:
+1. GitLab → Settings → Access Tokens
+2. Название: "Server Access"
+3. Срок действия: по вашему выбору
+4. Scope: отметьте api и write_repository
 
-Используйте токен как пароль:
+Использовать токен как пароль:
 
 git clone https://gitlab.mosinzhproekt.ru/root/vendorportal.git
 # Логин: ваш_username
@@ -49,9 +49,9 @@ git clone https://gitlab.mosinzhproekt.ru/root/vendorportal.git
 
 Создайте SSH ключ на сервере:
 
-ssh-keygen -t ed25519 -C "your_email@example.com"
-# Нажмите Enter для всех вопросов
-Покажите публичный ключ:
+ssh-keygen -t ed25519 -C "email@mail.ru"
+# Нажать Enter для всех вопросов
+Публичный ключ:
 
 
 cat ~/.ssh/id_ed25519.pub
