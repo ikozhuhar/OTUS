@@ -80,4 +80,43 @@ project.repository.branches.each { |b| puts b.name }
 	# После коммита проверить историю
 	git log --oneline -3
 
+
+PS:
+
+Настройка доступа для push:
+
+Способ 1: Использование Personal Access Token (рекомендуется)
+
+Создайте Personal Access Token в GitLab:
+Зайдите в GitLab → Settings → Access Tokens
+Название: "Server Access"
+Срок действия: по вашему выбору
+Scope: отметьте api и write_repository
+
+Используйте токен как пароль:
+
+git clone https://gitlab.mosinzhproekt.ru/root/vendorportal.git
+# Логин: ваш_username
+# Пароль: ваш_token
+
+
+Способ 2: Настройка SSH ключей (более безопасно)
+
+Создайте SSH ключ на сервере:
+
+ssh-keygen -t ed25519 -C "your_email@example.com"
+# Нажмите Enter для всех вопросов
+Покажите публичный ключ:
+
+
+cat ~/.ssh/id_ed25519.pub
+Добавьте ключ в GitLab:
+
+Settings → SSH Keys
+
+Вставьте содержимое публичного ключа
+
+Клонируйте через SSH:
+
+git clone git@gitlab.mosinzhproekt.ru:root/vendorportal.git
 ```
