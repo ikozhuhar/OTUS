@@ -132,6 +132,9 @@ git clone git@gitlab.mosinzhproekt.ru:root/vendorportal.git
 ## Последовательность для pull на стороне сервера 192.168.160.57
 
 ```ruby
+sudo apt install git -y
+git --version
+
 # 1. Клонирование репозитория (если его еще нет)
 git clone https://gitlab.mosinzhproekt.ru/root/vendorportal.git
 cd vendorportal
