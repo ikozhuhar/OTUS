@@ -203,7 +203,7 @@ git status
 <img width="1498" height="170" alt="image" src="https://github.com/user-attachments/assets/d15b6ccb-7467-438f-8e99-1f88aa2d0e94" />
 
 
-
+<br>
 <br>
 
 :white_check_mark: _Задача: <a name='1'>Как добавить сертификат в доверенные</a>_ 
