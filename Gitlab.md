@@ -203,3 +203,19 @@ git status
 <img width="1498" height="170" alt="image" src="https://github.com/user-attachments/assets/d15b6ccb-7467-438f-8e99-1f88aa2d0e94" />
 
 
+
+<br>
+
+:white_check_mark: _Задача: <a name='1'>Как добавить сертификат в доверенные</a>_ 
+
+```ruby
+1. # Скачать сертификат
+openssl s_client -connect gitlab.mosinzhproekt.ru:443 -showcerts </dev/null 2>/dev/null | openssl x509 -outform PEM > gitlab-cert.pem
+
+2. # Добавить в систему
+sudo cp gitlab-cert.pem /usr/local/share/ca-certificates/
+sudo update-ca-certificates
+
+3. # Указать Git использовать системные сертификаты
+git config --global http.sslCAInfo /etc/ssl/certs/ca-certificates.crt
+```
