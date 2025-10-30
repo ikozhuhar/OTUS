@@ -9,6 +9,7 @@
 <img width="956" height="336" alt="image" src="https://github.com/user-attachments/assets/10c0e615-0ec4-4e66-9b07-33a9f460608a" />
 
 <img width="965" height="387" alt="image" src="https://github.com/user-attachments/assets/e130c073-e416-4963-ba20-6235d5df6d92" />
+<img width="961" height="332" alt="image" src="https://github.com/user-attachments/assets/81499fbd-aab5-4cce-ae58-ec812dcf16e2" />
 
 ```ruby
 padmin@mgmt:~$ SHIFT + V  # выделяет текст строками
