@@ -18,3 +18,5 @@ padmin@mgmt:~$ d          # После выделения символ d выр�
 padmin@mgmt:~$ p          # Вставить вырезанный текст
 ```
 
+
+<img width="965" height="899" alt="image" src="https://github.com/user-attachments/assets/637115f4-cecf-4a08-91cd-9dde6ec42d69" />
