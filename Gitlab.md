@@ -219,3 +219,23 @@ sudo update-ca-certificates
 3. # Указать Git использовать системные сертификаты
 git config --global http.sslCAInfo /etc/ssl/certs/ca-certificates.crt
 ```
+
+
+:white_check_mark: _Задача: <a name='1'>Удалить сертификат из доверенных</a>_ 
+
+```ruby
+# Удалить сертификат из папки ca-certificates
+sudo rm /usr/local/share/ca-certificates/onlyoffice-cert.crt
+
+# Обновить кэш сертификатов (удалит его из доверенных)
+sudo update-ca-certificates --fresh
+
+sudo rm /var/www/html/nextcloud/config/onlyoffice-cert.pem
+
+# Проверить, что файла больше нет
+ls -la /usr/local/share/ca-certificates/onlyoffice-cert.crt
+ls -la /var/www/html/nextcloud/config/onlyoffice-cert.pem
+
+# Проверить, что curl теперь снова видит ошибку SSL (если сертификат самоподписанный)
+curl -I https://disk.mosinzhproekt.ru/oos/healthcheck
+```
