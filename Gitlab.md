@@ -128,6 +128,19 @@ end
 
 project = Project.find_by(name: "CPBUP-ELO")
 project.repository.branches.each { |b| puts b.name }
+
+
+# Получить коммиты в ветке main
+commits = project.repository.commits('main', limit: 20)
+
+# Посмотреть информацию о каждом коммите
+commits.each do |commit|
+  puts "SHA: #{commit.id}"
+  puts "Author: #{commit.author_name}"
+  puts "Date: #{commit.committed_date}"
+  puts "Message: #{commit.message}"
+  puts "---"
+end
 ```
 
 <img width="1402" height="423" alt="image" src="https://github.com/user-attachments/assets/2ab66fe8-14bd-46a5-99ea-f88a386ddad8" />
