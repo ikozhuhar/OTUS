@@ -1,6 +1,6 @@
 ### Создание собственного/служебного репозитория Astra 1.8
 
-✅ Вариант 1: Простое зеркало (рекомендуется)
+✅ _Вариант 1: Простое зеркало_
 
 ```ruby
 1. sudo apt update && sudo apt dist-upgrade
@@ -30,7 +30,7 @@ https://dzen.ru/a/ZMoCvaLDAklOFRZj
 
 <br><br>
 
-✅ Вариант 2: Reprepro (для управления пакетами)
+✅ _Вариант 2: Reprepro (для управления пакетами)_
 
 ```ruby
 1. sudo apt update && sudo apt dist-upgrade
