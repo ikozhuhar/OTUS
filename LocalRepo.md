@@ -28,7 +28,7 @@ https://dzen.ru/a/ZMoCvaLDAklOFRZj
 <img width="1452" height="403" alt="image" src="https://github.com/user-attachments/assets/ff966a60-418c-4c37-af5b-927f752404d2" />
 
 
-<br>
+<br><br>
 
 ✅ Вариант 2: Reprepro (для управления пакетами)
 
