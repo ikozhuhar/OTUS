@@ -74,3 +74,6 @@ sudo systemctl start apache2
 
 https://wiki.astralinux.ru/pages/viewpage.action?pageId=3277393
 ```
+
+<img width="1359" height="225" alt="image" src="https://github.com/user-attachments/assets/7fa09627-72cc-46a9-91a0-2146889be41d" />
+
