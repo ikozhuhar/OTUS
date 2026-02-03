@@ -86,3 +86,67 @@ https://wiki.astralinux.ru/pages/viewpage.action?pageId=3277393
 sudo find /var/repo/debian12-mirror -name "*.gz" -o -name "Release" -o -name "Packages" | head -10
 ```
 
+```ruby
+padmin@astra-17:/var$ sudo apt update
+Игн:1 http://repos.mip.ru/astra17/mirror/dl.astralinux.ru/astra/stable/1.7_x86-64/repository-main 1.7_x86-64 InRelease
+Игн:2 http://repos.mip.ru/astra17/mirror/dl.astralinux.ru/astra/stable/1.7_x86-64/repository-update 1.7_x86-64 InRelease
+Игн:3 http://repos.mip.ru/astra17/mirror/dl.astralinux.ru/astra/stable/1.7_x86-64/repository-base 1.7_x86-64 InRelease
+Игн:4 http://repos.mip.ru/astra17/mirror/dl.astralinux.ru/astra/stable/1.7_x86-64/repository-extended 1.7_x86-64 InRelease
+Ошб:5 http://repos.mip.ru/astra17/mirror/dl.astralinux.ru/astra/stable/1.7_x86-64/repository-main 1.7_x86-64 Release
+  404  Not Found [IP: 192.168.13.37 80]
+Ошб:6 http://repos.mip.ru/astra17/mirror/dl.astralinux.ru/astra/stable/1.7_x86-64/repository-update 1.7_x86-64 Release
+  404  Not Found [IP: 192.168.13.37 80]
+Ошб:7 http://repos.mip.ru/astra17/mirror/dl.astralinux.ru/astra/stable/1.7_x86-64/repository-base 1.7_x86-64 Release
+  404  Not Found [IP: 192.168.13.37 80]
+Ошб:8 http://repos.mip.ru/astra17/mirror/dl.astralinux.ru/astra/stable/1.7_x86-64/repository-extended 1.7_x86-64 Release
+  404  Not Found [IP: 192.168.13.37 80]
+Чтение списков пакетов… Готово
+E: Репозиторий «http://repos.mip.ru/astra17/mirror/dl.astralinux.ru/astra/stable/1.7_x86-64/repository-main 1.7_x86-64 Release» не содержит файла Release.
+N: Обновление из этого репозитория нельзя выполнить безопасным способом, поэтому по умолчанию он отключён.
+N: Информацию о создании репозитория и настройках пользователя смотрите в справочной странице apt-secure(8).
+E: Репозиторий «http://repos.mip.ru/astra17/mirror/dl.astralinux.ru/astra/stable/1.7_x86-64/repository-update 1.7_x86-64 Release» не содержит файла Release.
+N: Обновление из этого репозитория нельзя выполнить безопасным способом, поэтому по умолчанию он отключён.
+N: Информацию о создании репозитория и настройках пользователя смотрите в справочной странице apt-secure(8).
+E: Репозиторий «http://repos.mip.ru/astra17/mirror/dl.astralinux.ru/astra/stable/1.7_x86-64/repository-base 1.7_x86-64 Release» не содержит файла Release.
+N: Обновление из этого репозитория нельзя выполнить безопасным способом, поэтому по умолчанию он отключён.
+N: Информацию о создании репозитория и настройках пользователя смотрите в справочной странице apt-secure(8).
+E: Репозиторий «http://repos.mip.ru/astra17/mirror/dl.astralinux.ru/astra/stable/1.7_x86-64/repository-extended 1.7_x86-64 Release» не содержит файла Release.
+N: Обновление из этого репозитория нельзя выполнить безопасным способом, поэтому по умолчанию он отключён.
+N: Информацию о создании репозитория и настройках пользователя смотрите в справочной странице apt-secure(8).
+
+
+Проблема та же, что была с Debian: метаданные скачались в skel/, но НЕ были перемещены в финальную директорию mirror/ из-за сетевых ошибок при загрузке пакетов.
+
+Решение: переместите метаданные вручную так как apt-mirror из-за ошибок загрузки пропустил финальный шаг
+# 1. Создайте недостающую структуру директорий
+sudo mkdir -p /var/repo/debian12-mirror/mirror/mirror.yandex.ru/debian/dists/
+
+# 2. Переместите метаданные из skel в mirror (для основного репозитория)
+sudo cp -r /var/repo/debian12-mirror/skel/mirror.yandex.ru/debian/dists/* /var/repo/debian12-mirror/mirror/mirror.yandex.ru/debian/dists/
+
+# 3. Переместите метаданные для security (они уже успешно переместились, но на всякий случай)
+sudo cp -r /var/repo/debian12-mirror/skel/mirror.yandex.ru/debian-security/dists/* /var/repo/debian12-mirror/mirror/mirror.yandex.ru/debian-security/dists/ 2>/dev/null || echo "Security уже перемещены"
+
+# 4. Проверьте структуру
+ls -la /var/repo/debian12-mirror/mirror/mirror.yandex.ru/debian/dists/
+
+
+
+# Быстрая проверка работоспособности
+
+# 1. Проверьте наличие ключевых файлов
+ls -la /var/repo/debian12-mirror/mirror/mirror.yandex.ru/debian/dists/bookworm/Release
+
+# 2. Проверьте доступность через веб
+curl -I http://localhost/debian12/mirror/mirror.yandex.ru/debian/dists/bookworm/Release
+
+# 3. Проверьте весь путь
+curl http://localhost/debian12/mirror/mirror.yandex.ru/debian/dists/bookworm/ | head -20
+
+# Проверьте основной репозиторий
+curl -I http://localhost/astra17/mirror/dl.astralinux.ru/astra/stable/1.7_x86-64/repository-main/dists/1.7_x86-64/Release
+
+# Проверьте другие репозитории
+curl -I http://localhost/astra17/mirror/dl.astralinux.ru/astra/stable/1.7_x86-64/repository-update/dists/1.7_x86-64/Release
+```
+
