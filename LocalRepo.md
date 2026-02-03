@@ -82,5 +82,7 @@ https://wiki.astralinux.ru/pages/viewpage.action?pageId=3277393
 
 ✅ _TROUBLESHOOTING_
 
+```ruby
 sudo find /var/repo/debian12-mirror -name "*.gz" -o -name "Release" -o -name "Packages" | head -10
+```
 
