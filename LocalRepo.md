@@ -117,36 +117,36 @@ N: Информацию о создании репозитория и настр
 
 Проблема та же, что была с Debian: метаданные скачались в skel/, но НЕ были перемещены в финальную директорию mirror/ из-за сетевых ошибок при загрузке пакетов.
 
-Решение: переместите метаданные вручную так как apt-mirror из-за ошибок загрузки пропустил финальный шаг
-# 1. Создайте недостающую структуру директорий
+Решение: переместить метаданные вручную так как apt-mirror из-за ошибок загрузки пропустил финальный шаг
+# 1. Создать недостающую структуру директорий
 sudo mkdir -p /var/repo/debian12-mirror/mirror/mirror.yandex.ru/debian/dists/
 
-# 2. Переместите метаданные из skel в mirror (для основного репозитория)
+# 2. Переместить метаданные из skel в mirror (для основного репозитория)
 sudo cp -r /var/repo/debian12-mirror/skel/mirror.yandex.ru/debian/dists/* /var/repo/debian12-mirror/mirror/mirror.yandex.ru/debian/dists/
 
-# 3. Переместите метаданные для security (они уже успешно переместились, но на всякий случай)
+# 3. Переместить метаданные для security (они уже успешно переместились, но на всякий случай)
 sudo cp -r /var/repo/debian12-mirror/skel/mirror.yandex.ru/debian-security/dists/* /var/repo/debian12-mirror/mirror/mirror.yandex.ru/debian-security/dists/ 2>/dev/null || echo "Security уже перемещены"
 
-# 4. Проверьте структуру
+# 4. Проверить структуру
 ls -la /var/repo/debian12-mirror/mirror/mirror.yandex.ru/debian/dists/
 
 
 
 # Быстрая проверка работоспособности
 
-# 1. Проверьте наличие ключевых файлов
+# 1. Проверить наличие ключевых файлов
 ls -la /var/repo/debian12-mirror/mirror/mirror.yandex.ru/debian/dists/bookworm/Release
 
-# 2. Проверьте доступность через веб
+# 2. Проверить доступность через веб
 curl -I http://localhost/debian12/mirror/mirror.yandex.ru/debian/dists/bookworm/Release
 
-# 3. Проверьте весь путь
+# 3. Проверить весь путь
 curl http://localhost/debian12/mirror/mirror.yandex.ru/debian/dists/bookworm/ | head -20
 
-# Проверьте основной репозиторий
+# Проверить основной репозиторий
 curl -I http://localhost/astra17/mirror/dl.astralinux.ru/astra/stable/1.7_x86-64/repository-main/dists/1.7_x86-64/Release
 
-# Проверьте другие репозитории
+# Проверить другие репозитории
 curl -I http://localhost/astra17/mirror/dl.astralinux.ru/astra/stable/1.7_x86-64/repository-update/dists/1.7_x86-64/Release
 ```
 
