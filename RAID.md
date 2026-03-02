@@ -35,6 +35,6 @@
 1. sudo umount /mnt/raid
 2. sudo mdadm --stop /dev/md1
 3. sudo mdadm --zero-superblock /dev/sdg1 /dev/sdh1
-4. Удалите из /etc/fstab и /etc/mdadm/mdadm.conf RAID массив /dev/md1 и сообщите об этом системе: sudo update-initramfs –u
+4. Удалить из /etc/fstab и /etc/mdadm/mdadm.conf RAID массив /dev/md1 и сообщить об этом системе: sudo update-initramfs –u
 5. sudo update-initramfs –u
 ```
