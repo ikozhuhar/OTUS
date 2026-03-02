@@ -29,7 +29,7 @@
 6. sudo cat /proc/mdstat
 ```
 
-### Удаление массива RAID
+### Удаление массива RAID, Linux. Карманный справочник, стр. 220
 
 ```ruby
 1. sudo umount /mnt/raid
